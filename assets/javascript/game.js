@@ -1,6 +1,6 @@
 // created: July 8, 2017 18:00
 // Author: Chris Jalallian
-// Revisions: 
+// Revisions: 7/9 16:00 converted button clicks to image clicks and added win image
 
 var goalPoints, redValue, blueValue, greenValue, purpleValue, playerPoints = 0;
 
@@ -28,11 +28,11 @@ function game() {
 	greenValue = [Math.floor(Math.random() * (12 - 1 + 1)) + 1];
 	purpleValue = [Math.floor(Math.random() * (12 - 1 + 1)) + 1];
 	
-	// Set html element values
-	$("#redButton").val(redValue);
-	$("#blueButton").val(blueValue);
-	$("#greenButton").val(greenValue);
-	$("#purpleButton").val(purpleValue);
+	// Set html element values (swapped from using value with buttons to attr)
+	$("#redButton").attr("value", redValue);
+	$("#blueButton").attr("value", blueValue);
+	$("#greenButton").attr("value", greenValue);
+	$("#purpleButton").attr("value", purpleValue);
 }
 
 function checkwin() {
@@ -44,12 +44,13 @@ function checkwin() {
 	if (playerPoints == goalPoints) {
 		game();
 		$("#winTotal").html(wins++).effect("bounce","slow");
+		$("#win-image").fadeIn().fadeOut();
 	}
 }
 
-// Click button gets jewel value and adds to current points, runs effects, and checks win condition
-$('button').click(function() {
-	var buttonValue = $(this).attr('value');
+// Click image gets jewel value and adds to current points, runs effects, and checks win condition
+$(".crystal-images").click(function() {
+	var buttonValue = $(this).attr("value");
 	playerPoints = playerPoints + parseInt(buttonValue);
 	$("#current-points").html(playerPoints).effect("highlight","fast");
 	$("#last-points").html("+" + buttonValue).fadeIn().fadeOut();
