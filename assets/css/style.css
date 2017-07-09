@@ -1,3 +1,14 @@
+/*.nav-text-color a {
+	color: #000000;
+}
+
+#h1-crystal {
+	background-color: #29aba4;
+}
+.center-bg {
+
+}
+*/
 
 
 #instruction-toggle, #instruction-container  {
@@ -6,10 +17,9 @@
 	font-size: 14px;
 	padding: 4px;
 	text-align: left;
-	background: #555;
-	border: solid 1px #666;
+	background: #29aba4;
+	border: solid 1px #ffffff;
 	color: #ffffff;
-	border-radius: 3px;
 }
 #instruction-toggle {
 	cursor: pointer;

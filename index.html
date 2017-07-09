@@ -4,9 +4,15 @@
   <title>Crystal Collector</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
   <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <!-- Load jQuery before jQuery UI modules -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
   <style>
@@ -45,7 +51,7 @@
 </head>
 <body>
 
-<nav class="navbar navbar-inverse">
+<nav class="navbar nav-text-color">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -66,11 +72,13 @@
 </nav>
   
 <div class="container-fluid text-center">    
-  <div class="row content">
+  <div class="row content center-bg">
     <div class="col-sm-2 sidenav">
+      <div class="col-sm-12" id="point-value">
+      </div>
     </div>
     <div class="col-sm-8 text-left">
-      <h1>Crystal Collector</h1>
+      <h1 id="h1-crystal">Crystal Collector</h1>
       <!-- Instruction toggle -->
       <p id = "instruction-toggle">Click to view/hide instructions</p>
         <div id="instruction-container" style="display: none;">
@@ -79,10 +87,10 @@
           <p class = "instructions">The value of each crystal is hidden until it is clicked.</p>
           <p class = "instructions">When the game ends, the value of the crystals and goal will change!</p>
         </div>
-      <button id = "redButton" onclick= "red(); checkwin();">Red</button>
-      <button id = "blueButton" onclick= "blue(); checkwin();">Blue</button>
-      <button id = "greenButton" onclick= "green(); checkwin();">Green</button>
-      <button id = "purpleButton" onclick= "purple(); checkwin();">Purple</button>
+      <button id = "redButton">Red</button>
+      <button id = "blueButton">Blue</button>
+      <button id = "greenButton">Green</button>
+      <button id = "purpleButton">Purple</button>
     </div>    
      <!--  <div id = "redButton" src="assets/images/red_gem.png" width="150px" onclick= "red(); checkwin();"></div>
       <div id = "blueButton" src="assets/images/blue_gem.png" width ="150px" onclick= "blue(); checkwin();"></div>
@@ -94,13 +102,14 @@
           <div id = "goalValue"></div>
       <br>
         <div id = "currentPointText">Current Point Value</div>
-          <div id = "currentPoints"></div>
+          <div class= "col-sm-offset-5 col-sm-2" id = "current-points"></div>
+          <div class= "col-sm-5" id="last-points"></div>
       <br>
         <div id = "winText">Wins: </div>
-          <div id = "winTotal"></div>
+          <div id = "winTotal">0</div>
       <br>
         <div id = "lossText">Losses: </div>
-          <div id = "lossTotal"></div>
+          <div id = "lossTotal">0</div>
     </div>
   </div>
 </div>
