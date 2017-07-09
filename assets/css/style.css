@@ -1,0 +1,17 @@
+
+
+#instruction-toggle, #instruction-container  {
+	line-height: 22px;
+	margin: auto;
+	font-size: 14px;
+	padding: 4px;
+	text-align: left;
+	background: #555;
+	border: solid 1px #666;
+	color: #ffffff;
+	border-radius: 3px;
+}
+#instruction-toggle {
+	cursor: pointer;
+	text-align: center;
+}
