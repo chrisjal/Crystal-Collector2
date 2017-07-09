@@ -23,7 +23,7 @@
     }
     
     /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
-    .row.content {height: 450px}
+    .row.content {height: 950px}
     
     /* Set gray background color and 100% height */
     .sidenav {
@@ -50,74 +50,91 @@
   </style>
 </head>
 <body>
-
-<nav class="navbar nav-text-color">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
-      </button>
-      <a class="navbar-brand" href="#">Crystal Collector</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="https://github.com/chrisjal/Crystal-Collector">Source</a></li>
-        <li><a href="https://chrisjal.github.io/Bootstrap-Portfolio/">Portfolio</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </div>
-  </div>
-</nav>
+  <header>
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+      <div class="navigation">
+        <div class="container">         
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse.collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <div class="navbar-brand">
+              <a href="#">Crystal Collector</a>
+            </div>
+          </div>
+            
+          <div class="navbar-collapse collapse navbar-right">              
+            <div class="menu">
+              <ul class="nav nav-tabs" role="tablist">
+                <li><a href="https://github.com/chrisjal/Crystal-Collector">Source</a></li>
+                <li><a href="https://chrisjal.github.io/Bootstrap-Portfolio/">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>                               
+              </ul>
+            </div>
+          </div>            
+        </div>
+      </div>  
+    </nav>      
+  </header>
   
-<div class="container-fluid text-center">    
-  <div class="row content center-bg">
-    <div class="col-sm-2 sidenav">
-      <div class="col-sm-12" id="point-value">
+  <div class="container-fluid text-center">    
+    <div class="row content center-bg main-content">
+      <div class="col-sm-2 sidebars">
+            <p id = "instruction-toggle">Click to view/hide instructions</p>
+            <div id="instruction-container" style="display: none;">
+              <p class = "instructions">You will be given a random number goal at the start of the game. Your objective is to match this number exactly by using the value of the four crystals below.</p>
+              <p class = "instructions"><strong>Clicking</strong> each crystal will add a specific value to your current total. These values will continue to add up until you meet your goal (a win) or exceed your goal (a loss).</p>
+              <p class = "instructions">The value of each crystal is hidden until it is clicked.</p>
+              <p class = "instructions">When the game ends, the value of the crystals and goal will change!</p>
+          </div>
+      </div>
+      <div class="col-sm-8 center-content-bg">
+        <h1 id="h1-crystal">Crystal Collector</h1>
+        <div class="col-sm-3">  
+          <img class="crystal-images" id="redButton" src="assets/images/red_gem.png" width="200px"></img>
+        </div>
+        <div class="col-sm-3">
+          <img class="crystal-images" id="blueButton" src="assets/images/blue_gem.png" width ="200px"></img>
+        </div>
+        <div class="col-sm-3">
+          <img class="crystal-images" id="greenButton" src="assets/images/green_gem.png" width ="200px"></img>
+        </div>
+        <div class="col-sm-3">
+          <img class="crystal-images" id="purpleButton" src="assets/images/purple_gem.png" width ="200px"></img>
+        </div>
+      </div>  
+      <div class="col-sm-2 sidebars">
+          <div id="goalText">Goal Value: 
+            <div id="goalValue"> 
+            </div>
+          </div>
+        <br>
+          <div id="currentPointText">Current Point Value
+            <div class="col-sm-offset-5 col-sm-2" id = "current-points">
+            </div>
+            <div class="col-sm-5" id="last-points">
+            </div>
+          </div>
+        <br><br>
+          <div id="winText">Wins: 
+            <div id="winTotal">0
+            </div>
+          </div>
+        <br>
+          <div id="lossText">Losses: 
+            <div id="lossTotal">0
+            </div>
+          </div>
+        <br>
+        <img id ="win-image" src="assets/images/mchammer.gif" style="display: none;">
+        </img>
       </div>
     </div>
-    <div class="col-sm-8 text-left">
-      <h1 id="h1-crystal">Crystal Collector</h1>
-      <!-- Instruction toggle -->
-      <p id = "instruction-toggle">Click to view/hide instructions</p>
-        <div id="instruction-container" style="display: none;">
-          <p class = "instructions">You will be given a random number goal at the start of the game. Your objective is to match this number exactly by using the value of the four crystals below.</p>
-          <p class = "instructions"><strong>Clicking</strong> each crystal will add a specific value to your current total. These values will continue to add up until you meet your goal (a win) or exceed your goal (a loss).</p>
-          <p class = "instructions">The value of each crystal is hidden until it is clicked.</p>
-          <p class = "instructions">When the game ends, the value of the crystals and goal will change!</p>
-        </div>
-      <button id = "redButton">Red</button>
-      <button id = "blueButton">Blue</button>
-      <button id = "greenButton">Green</button>
-      <button id = "purpleButton">Purple</button>
-    </div>    
-     <!--  <div id = "redButton" src="assets/images/red_gem.png" width="150px" onclick= "red(); checkwin();"></div>
-      <div id = "blueButton" src="assets/images/blue_gem.png" width ="150px" onclick= "blue(); checkwin();"></div>
-      <div id = "greenButton" src="assets/images/green_gem.png" width ="150px" onclick= "green(); checkwin();"></div>
-      <div id = "purpleButton" src="assets/images/purple_gem.png" width ="150px" onclick= "purple(); checkwin();"></div> -->
-      
-    <div class="col-sm-2 sidenav">
-        <div id = "goalText">Goal Value: </div>
-          <div id = "goalValue"></div>
-      <br>
-        <div id = "currentPointText">Current Point Value</div>
-          <div class= "col-sm-offset-5 col-sm-2" id = "current-points"></div>
-          <div class= "col-sm-5" id="last-points"></div>
-      <br>
-        <div id = "winText">Wins: </div>
-          <div id = "winTotal">0</div>
-      <br>
-        <div id = "lossText">Losses: </div>
-          <div id = "lossTotal">0</div>
-    </div>
   </div>
-</div>
-
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
-<script type="text/javascript" src="assets/javascript/game.js"></script>
+  <script type="text/javascript" src="assets/javascript/game.js"></script>
 
 </body>
 </html>
