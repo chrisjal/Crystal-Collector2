@@ -1,15 +1,7 @@
-/*.nav-text-color a {
-	color: #000000;
+.main-content {
+	padding-top: 50px;
+	background-color: #d5e6ee;
 }
-
-#h1-crystal {
-	background-color: #29aba4;
-}
-.center-bg {
-
-}
-*/
-
 
 #instruction-toggle, #instruction-container  {
 	line-height: 22px;
@@ -24,4 +16,15 @@
 #instruction-toggle {
 	cursor: pointer;
 	text-align: center;
+}
+
+.sidebars {
+	background-color: #d5e6ee;
+	height: 100%;
+	padding-top: 20px;
+}
+
+.center-content-bg {
+	background-color: #ffffff;
+	height: 100%;
 }
